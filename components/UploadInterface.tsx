@@ -29,7 +29,7 @@ const formQuestions: FormQuestion[] = [
       "Provide survivor income protection for dependents or beneficiaries",
       "Act as a supplemental income source through tax-advantaged cash value access",
       "Enhance tax efficiency or maximize wealth accumulation potential",
-      "Provide estate liquidity or support wealth transfer objectives", 
+      "Provide estate liquidity or support wealth transfer objectives",
       "Support business planning needs (e.g., succession, buy-sell agreements, key-person protection)"
     ]
   },
@@ -37,7 +37,7 @@ const formQuestions: FormQuestion[] = [
     question: "What time horizon does your client expect for realizing the benefits of this policy?",
     options: [
       "Short-term: Less than 10 years",
-      "Medium-term: 10–20 years", 
+      "Medium-term: 10–20 years",
       "Long-term: 20+ years",
       "Lifetime: Benefits needed indefinitely"
     ]
@@ -75,7 +75,7 @@ const formQuestions: FormQuestion[] = [
       "Not important: Focus on core benefits only",
       "Somewhat important: Added protection or flexibility would be helpful",
       "Important: Features for unexpected events, like illness or disability, add value",
-      "Very important: Comprehensive benefits to adapt to life&apos;s uncertainties are essential"
+      "Very important: Comprehensive benefits to adapt to life's uncertainties are essential"
     ]
   }
 ]
@@ -219,30 +219,25 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
               </p>
             </div>
 
-            <div 
+            <motion.div 
+              className="border-2 border-dashed border-gray-300 p-8 rounded-lg text-center cursor-pointer hover:border-[#4361EE] transition-all duration-300 bg-blue-50"
+              whileHover={{ scale: 1.02 }}
               onClick={() => fileInputRef.current?.click()}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
-              className="text-center p-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-blue-50"
             >
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
-                <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
-                <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
-                <input
-                  type="file"
-                  ref={fileInputRef}
-                  onChange={handleFileChange}
-                  accept=".pdf"
-                  className="hidden"
-                />
-              </motion.div>
-            </div>
-          
+              <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
+              <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
+              <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                accept=".pdf"
+                className="hidden"
+              />
+            </motion.div>
+            
             {file && (
               <p className="text-sm text-green-600 font-medium">Selected file: {file.name}</p>
             )}
@@ -250,7 +245,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
             {error && (
               <p className="text-sm text-red-600 font-medium">{error}</p>
             )}
-          
+            
             <div>
               <label htmlFor="email" className="block mb-2 font-medium text-[#4361EE]">Email for Report Delivery</label>
               <Input
@@ -266,48 +261,48 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
             <div className="border-t border-gray-200 pt-8">
               <h4 className="text-2xl font-semibold text-[#4361EE] mb-4">Client Goals and Priorities</h4>
               <p className="text-gray-700 mb-6">
-                Tell us about your client&apos;s goals. Our AI will analyze these priorities alongside your illustration to create a personalized presentation framework that connects policy features to client objectives.
+                Tell us about your client's goals. Our AI will analyze these priorities alongside your illustration to create a personalized presentation framework that connects policy features to client objectives.
               </p>
             </div>
 
             {formQuestions.map((q, index) => (
-              <div key={index}>
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
-                  <Select onValueChange={(value) => handleFormChange(index, value)}>
-                    <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
-                      <SelectValue placeholder="Select an option" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {q.options.map((option, optionIndex) => (
-                        <SelectItem key={optionIndex} value={option}>
-                          {option}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </motion.div>
-              </div>
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
+                <Select onValueChange={(value) => handleFormChange(index, value)}>
+                  <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
+                    <SelectValue placeholder="Select an option" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {q.options.map((option, optionIndex) => (
+                      <SelectItem key={optionIndex} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </motion.div>
             ))}
-          
-            <motion.section
+            
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
             >
-              <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
-              <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
-              <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Your email address is entered correctly - your analysis will arrive here</li>
-                <li>Your responses accurately reflect your client&apos;s priorities</li>
-                <li>Your illustration PDF has been successfully uploaded</li>
-              </ul>
-            </motion.section>
+              <section className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4">
+                <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
+                <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li>Your email address is entered correctly - your analysis will arrive here</li>
+                  <li>Your responses accurately reflect your client&apos;s priorities</li>
+                  <li>Your illustration PDF has been successfully uploaded</li>
+                </ul>
+              </section>
+            </motion.div>
 
             <Button 
               className="w-full bg-[#4361EE] text-white hover:bg-[#3651DE] transition-all duration-300" 
@@ -319,7 +314,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
             </Button>
 
             <p className="text-sm text-gray-600 mt-4">
-              Our AI will deliver your Goal-Based Policy Analysis within 5-10 minutes. Can&apos;t find it?
+              Our AI will deliver your Goal-Based Policy Analysis within 5-10 minutes. Can't find it?
               <br />
               • Check your spam/junk folders
               <br />
@@ -332,10 +327,10 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
 
             {uploadSuccess && (
               <motion.div 
+                className="mt-4 p-4 bg-green-100 text-green-700 rounded-md flex items-center"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-green-100 text-green-700 rounded-md p-4 mt-4 flex items-center"
               >
                 <CheckCircle className="mr-2" />
                 <span>Thank you for uploading your policy document. Your reports will be sent shortly to the email address you provided.</span>
@@ -347,3 +342,4 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
     </section>
   )
 }
+
