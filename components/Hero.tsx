@@ -1,6 +1,6 @@
 'use client'
 
-import { Shield, Clock, Target, FileText, CheckCircle, Zap, ArrowRight, Upload, Map, Lightbulb, BracketsIcon as Bridge, PresentationIcon as PresentationChart, UploadIcon, Brain, PresentationIcon } from 'lucide-react'
+import { Zap, ArrowRight, Map, Lightbulb, BracketsIcon as Bridge, PresentationIcon as PresentationChart, UploadIcon, Brain, PresentationIcon, FileText, CheckCircle } from 'lucide-react'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 
@@ -58,11 +58,11 @@ export function Hero() {
               <ul className="space-y-2 text-left text-gray-600 text-lg">
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                  <span>Share any carrier's life insurance illustration</span>
+                  <span>Share any carrier&apos;s life insurance illustration</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                  <span>Input key client objectives & priorities</span>
+                  <span>Input key client objectives &amp; priorities</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
@@ -80,7 +80,7 @@ export function Hero() {
               <ul className="space-y-2 text-left text-gray-600 text-lg">
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
-                  <span>Analyzes policy features & benefits</span>
+                  <span>Analyzes policy features &amp; benefits</span>
                 </li>
                 <li className="flex items-start">
                   <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" />
@@ -118,7 +118,7 @@ export function Hero() {
         </div>
 
         <div className="max-w-4xl mx-auto mb-16">
-          <h3 className="text-4xl font-semibold mb-8 text-[#4B6FEE] text-center">What You'll Receive</h3>
+          <h3 className="text-4xl font-semibold mb-8 text-[#4B6FEE] text-center">What You&apos;ll Receive</h3>
           <div className="bg-white rounded-xl shadow-lg p-12">
             <div className="text-center mb-8">
               <h4 className="text-3xl font-bold text-[#4B6FEE] mb-2">Goal-Based Policy Analysis</h4>
@@ -128,7 +128,7 @@ export function Hero() {
               <div className="bg-gray-50 rounded-lg p-6 transform transition-all hover:scale-105 duration-300">
                 <div className="flex flex-col items-center mb-4">
                   <Map className="w-8 h-8 text-[#4B6FEE] mb-2" />
-                  <h4 className="text-2xl font-bold text-[#4B6FEE] text-center">Conversation Roadmap &<br />Planning Guide</h4>
+                  <h4 className="text-2xl font-bold text-[#4B6FEE] text-center">Conversation Roadmap &amp;<br />Planning Guide</h4>
                 </div>
                 <p className="text-gray-600 text-center">A concise framework complementing your policy illustration. Provides the narrative to guide meaningful client discussions around protection goals, time horizons, and risk preferences.</p>
               </div>
@@ -144,12 +144,12 @@ export function Hero() {
                   <Bridge className="w-8 h-8 text-[#4B6FEE] mb-2" />
                   <h4 className="text-2xl font-bold text-[#4B6FEE] text-center">Discovery-to-Solution<br />Pathway</h4>
                 </div>
-                <p className="text-gray-600 text-center">Bridge the gap between client discovery and policy recommendations. Demonstrate how each policy element directly addresses your client's stated needs and concerns.</p>
+                <p className="text-gray-600 text-center">Bridge the gap between client discovery and policy recommendations. Demonstrate how each policy element directly addresses your client&apos;s stated needs and concerns.</p>
               </div>
               <div className="bg-gray-50 rounded-lg p-6 transform transition-all hover:scale-105 duration-300">
                 <div className="flex flex-col items-center mb-4">
                   <PresentationChart className="w-8 h-8 text-[#4B6FEE] mb-2" />
-                  <h4 className="text-2xl font-bold text-[#4B6FEE] text-center">Implementation &<br />Education Framework</h4>
+                  <h4 className="text-2xl font-bold text-[#4B6FEE] text-center">Implementation &amp;<br />Education Framework</h4>
                 </div>
                 <p className="text-gray-600 text-center">Turn technical considerations into client-friendly discussions. Explain key concepts, address common questions, and highlight important features without getting lost in illustration details.</p>
               </div>
@@ -172,7 +172,7 @@ export function Hero() {
             <div className="bg-[#4B6FEE] text-white p-6">
               <h3 className="text-3xl font-bold mb-2 flex items-center justify-center">
                 <Zap className="w-8 h-8 mr-2" aria-hidden="true" />
-                Ready to Align Policies with Your Client's Goals?
+                Ready to Align Policies with Your Client&apos;s Goals?
               </h3>
               <p className="text-xl">Upload illustration, share client goals, get your analysis in minutes</p>
             </div>
@@ -192,4 +192,3 @@ export function Hero() {
     </section>
   )
 }
-
