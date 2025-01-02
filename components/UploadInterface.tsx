@@ -203,153 +203,143 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
 
   return (
     <section className="bg-gradient-to-b from-blue-50 to-white py-16">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="container mx-auto px-4 max-w-3xl"
-      >
-        <h3 className="text-3xl font-bold mb-6 text-[#4361EE] text-center">Goal-Based Policy Analysis</h3>
-        
-        <div className="space-y-8 bg-white rounded-2xl shadow-xl p-8">
-          <div className="text-center">
-            <Zap className="inline-block text-[#4361EE] mb-4" size={40} />
-            <p className="text-lg text-gray-700">
-              Create your Goal-Based Policy Analysis in minutes. Our AI will transform your illustration and client objectives into a powerful presentation companion.
-            </p>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            whileHover={{ scale: 1.02 }}
-            onClick={() => fileInputRef.current?.click()}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
-            style={{
-              borderWidth: 2,
-              borderStyle: 'dashed',
-              borderColor: 'rgb(209, 213, 219)',
-              padding: '2rem',
-              borderRadius: '0.5rem',
-              cursor: 'pointer',
-              transition: 'all 300ms',
-              backgroundColor: 'rgb(239, 246, 255)'
-            }}
-            className="text-center"
-          >
-            <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
-            <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
-            <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileChange}
-              accept=".pdf"
-              className="hidden"
-            />
-          </motion.div>
+      <div className="container mx-auto px-4 max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="text-3xl font-bold mb-6 text-[#4361EE] text-center">Goal-Based Policy Analysis</h3>
           
-          {file && (
-            <p className="text-sm text-green-600 font-medium">Selected file: {file.name}</p>
-          )}
+          <div className="space-y-8 bg-white rounded-2xl shadow-xl p-8">
+            <div className="text-center">
+              <Zap className="inline-block text-[#4361EE] mb-4" size={40} />
+              <p className="text-lg text-gray-700">
+                Create your Goal-Based Policy Analysis in minutes. Our AI will transform your illustration and client objectives into a powerful presentation companion.
+              </p>
+            </div>
 
-          {error && (
-            <p className="text-sm text-red-600 font-medium">{error}</p>
-          )}
-          
-          <div>
-            <label htmlFor="email" className="block mb-2 font-medium text-[#4361EE]">Email for Report Delivery</label>
-            <Input
-              type="email"
-              id="email"
-              placeholder="your@email.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]"
-            />
-          </div>
-
-          <div className="border-t border-gray-200 pt-8">
-            <h4 className="text-2xl font-semibold text-[#4361EE] mb-4">Client Goals and Priorities</h4>
-            <p className="text-gray-700 mb-6">
-              Tell us about your client&apos;s goals. Our AI will analyze these priorities alongside your illustration to create a personalized presentation framework that connects policy features to client objectives.
-            </p>
-          </div>
-
-          {formQuestions.map((q, index) => (
             <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="mb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              whileHover={{ scale: 1.02 }}
+              onClick={() => fileInputRef.current?.click()}
+              onDragOver={handleDragOver}
+              onDrop={handleDrop}
+              className="text-center p-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-blue-50"
             >
-              <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
-              <Select onValueChange={(value) => handleFormChange(index, value)}>
-                <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
-                  <SelectValue placeholder="Select an option" />
-                </SelectTrigger>
-                <SelectContent>
-                  {q.options.map((option, optionIndex) => (
-                    <SelectItem key={optionIndex} value={option}>
-                      {option}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
+              <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
+              <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
+              <input
+                type="file"
+                ref={fileInputRef}
+                onChange={handleFileChange}
+                accept=".pdf"
+                className="hidden"
+              />
             </motion.div>
-          ))}
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
-          >
-            <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
-            <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
-            <ul className="list-disc list-inside text-gray-700 space-y-2">
-              <li>Your email address is entered correctly - your analysis will arrive here</li>
-              <li>Your responses accurately reflect your client&apos;s priorities</li>
-              <li>Your illustration PDF has been successfully uploaded</li>
-            </ul>
-          </motion.div>
+            {file && (
+              <p className="text-sm text-green-600 font-medium">Selected file: {file.name}</p>
+            )}
 
-          <Button 
-            className="w-full bg-[#4361EE] text-white hover:bg-[#3651DE] transition-all duration-300" 
-            size="lg"
-            onClick={handleUpload}
-            disabled={!isFormComplete || isUploading}
-          >
-            {isUploading ? 'Uploading...' : 'Submit for Analysis'}
-          </Button>
+            {error && (
+              <p className="text-sm text-red-600 font-medium">{error}</p>
+            )}
+          
+            <div>
+              <label htmlFor="email" className="block mb-2 font-medium text-[#4361EE]">Email for Report Delivery</label>
+              <Input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]"
+              />
+            </div>
 
-          <p className="text-sm text-gray-600 mt-4">
-            Our AI will deliver your Goal-Based Policy Analysis within 5-10 minutes. Can&apos;t find it?
-            <br />
-            • Check your spam/junk folders
-            <br />
-            • Verify your email address
-            <br />
-            • Need help? Contact us at support@fpai.com
-            <br /><br />
-            The accuracy of your AI-powered analysis depends on both your illustration and goal selections. Take a moment to review your inputs to ensure the most relevant presentation companion possible.
-          </p>
+            <div className="border-t border-gray-200 pt-8">
+              <h4 className="text-2xl font-semibold text-[#4361EE] mb-4">Client Goals and Priorities</h4>
+              <p className="text-gray-700 mb-6">
+                Tell us about your client&apos;s goals. Our AI will analyze these priorities alongside your illustration to create a personalized presentation framework that connects policy features to client objectives.
+              </p>
+            </div>
 
-          {uploadSuccess && (
+            {formQuestions.map((q, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
+                <Select onValueChange={(value) => handleFormChange(index, value)}>
+                  <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
+                    <SelectValue placeholder="Select an option" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {q.options.map((option, optionIndex) => (
+                      <SelectItem key={optionIndex} value={option}>
+                        {option}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </motion.div>
+            ))}
+          
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mt-4 p-4 bg-green-100 text-green-700 rounded-md flex items-center"
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
             >
-              <CheckCircle className="mr-2" />
-              <span>Thank you for uploading your policy document. Your reports will be sent shortly to the email address you provided.</span>
+              <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
+              <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li>Your email address is entered correctly - your analysis will arrive here</li>
+                <li>Your responses accurately reflect your client&apos;s priorities</li>
+                <li>Your illustration PDF has been successfully uploaded</li>
+              </ul>
             </motion.div>
-          )}
-        </div>
-      </motion.div>
+
+            <Button 
+              className="w-full bg-[#4361EE] text-white hover:bg-[#3651DE] transition-all duration-300" 
+              size="lg"
+              onClick={handleUpload}
+              disabled={!isFormComplete || isUploading}
+            >
+              {isUploading ? 'Uploading...' : 'Submit for Analysis'}
+            </Button>
+
+            <p className="text-sm text-gray-600 mt-4">
+              Our AI will deliver your Goal-Based Policy Analysis within 5-10 minutes. Can&apos;t find it?
+              <br />
+              • Check your spam/junk folders
+              <br />
+              • Verify your email address
+              <br />
+              • Need help? Contact us at support@fpai.com
+              <br /><br />
+              The accuracy of your AI-powered analysis depends on both your illustration and goal selections. Take a moment to review your inputs to ensure the most relevant presentation companion possible.
+            </p>
+
+            {uploadSuccess && (
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mt-4 p-4 bg-green-100 text-green-700 rounded-md flex items-center"
+              >
+                <CheckCircle className="mr-2" />
+                <span>Thank you for uploading your policy document. Your reports will be sent shortly to the email address you provided.</span>
+              </motion.div>
+            )}
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }
