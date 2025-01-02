@@ -75,7 +75,7 @@ const formQuestions: FormQuestion[] = [
       "Not important: Focus on core benefits only",
       "Somewhat important: Added protection or flexibility would be helpful",
       "Important: Features for unexpected events, like illness or disability, add value",
-      "Very important: Comprehensive benefits to adapt to life's uncertainties are essential"
+      "Very important: Comprehensive benefits to adapt to life&apos;s uncertainties are essential"
     ]
   }
 ]
@@ -261,7 +261,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
             <div className="border-t border-gray-200 pt-8">
               <h4 className="text-2xl font-semibold text-[#4361EE] mb-4">Client Goals and Priorities</h4>
               <p className="text-gray-700 mb-6">
-                Tell us about your client's goals. Our AI will analyze these priorities alongside your illustration to create a personalized presentation framework that connects policy features to client objectives.
+                Tell us about your client&apos;s goals. Our AI will analyze these priorities alongside your illustration to create a personalized presentation framework that connects policy features to client objectives.
               </p>
             </div>
 
@@ -298,7 +298,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
               <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
               <ul className="list-disc list-inside text-gray-700 space-y-2">
                 <li>Your email address is entered correctly - your analysis will arrive here</li>
-                <li>Your responses accurately reflect your client's priorities</li>
+                <li>Your responses accurately reflect your client&apos;s priorities</li>
                 <li>Your illustration PDF has been successfully uploaded</li>
               </ul>
             </motion.div>
@@ -313,7 +313,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
             </Button>
 
             <p className="text-sm text-gray-600 mt-4">
-              Our AI will deliver your Goal-Based Policy Analysis within 5-10 minutes. Can't find it?
+              Our AI will deliver your Goal-Based Policy Analysis within 5-10 minutes. Can&apos;t find it?
               <br />
               • Check your spam/junk folders
               <br />
@@ -341,4 +341,3 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
     </section>
   )
 }
-
