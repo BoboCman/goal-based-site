@@ -294,22 +294,20 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
               </div>
             ))}
           
-            <div>
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
-              >
-                <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
-                <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
-                <ul className="list-disc list-inside text-gray-700 space-y-2">
-                  <li>Your email address is entered correctly - your analysis will arrive here</li>
-                  <li>Your responses accurately reflect your client&apos;s priorities</li>
-                  <li>Your illustration PDF has been successfully uploaded</li>
-                </ul>
-              </motion.div>
-            </div>
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
+            >
+              <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
+              <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
+              <ul className="list-disc list-inside text-gray-700 space-y-2">
+                <li>Your email address is entered correctly - your analysis will arrive here</li>
+                <li>Your responses accurately reflect your client&apos;s priorities</li>
+                <li>Your illustration PDF has been successfully uploaded</li>
+              </ul>
+            </motion.section>
 
             <Button 
               className="w-full bg-[#4361EE] text-white hover:bg-[#3651DE] transition-all duration-300" 
