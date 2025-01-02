@@ -205,6 +205,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
     <section className="bg-gradient-to-b from-blue-50 to-white py-16">
       <div className="container mx-auto px-4 max-w-3xl">
         <motion.div
+          as="div"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -219,26 +220,29 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
               </p>
             </div>
 
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              whileHover={{ scale: 1.02 }}
+            <div 
               onClick={() => fileInputRef.current?.click()}
               onDragOver={handleDragOver}
               onDrop={handleDrop}
               className="text-center p-8 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-blue-50"
             >
-              <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
-              <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
-              <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
-              <input
-                type="file"
-                ref={fileInputRef}
-                onChange={handleFileChange}
-                accept=".pdf"
-                className="hidden"
-              />
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
+                <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
+                <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  onChange={handleFileChange}
+                  accept=".pdf"
+                  className="hidden"
+                />
+              </motion.div>
+            </div>
           
             {file && (
               <p className="text-sm text-green-600 font-medium">Selected file: {file.name}</p>
@@ -268,42 +272,45 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
             </div>
 
             {formQuestions.map((q, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
-                <Select onValueChange={(value) => handleFormChange(index, value)}>
-                  <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
-                    <SelectValue placeholder="Select an option" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {q.options.map((option, optionIndex) => (
-                      <SelectItem key={optionIndex} value={option}>
-                        {option}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-              </motion.div>
+              <div key={index}>
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
+                  <Select onValueChange={(value) => handleFormChange(index, value)}>
+                    <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
+                      <SelectValue placeholder="Select an option" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {q.options.map((option, optionIndex) => (
+                        <SelectItem key={optionIndex} value={option}>
+                          {option}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </motion.div>
+              </div>
             ))}
           
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
-            >
-              <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
-              <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
-              <ul className="list-disc list-inside text-gray-700 space-y-2">
-                <li>Your email address is entered correctly - your analysis will arrive here</li>
-                <li>Your responses accurately reflect your client&apos;s priorities</li>
-                <li>Your illustration PDF has been successfully uploaded</li>
-              </ul>
-            </motion.div>
+            <div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+                className="bg-blue-50 border border-blue-200 rounded-md p-6 mt-8 mb-4"
+              >
+                <h5 className="text-lg font-semibold text-[#4361EE] mb-2">Ready for your Goal-Based Policy Analysis?</h5>
+                <p className="text-gray-700 mb-4">Before clicking submit, please verify:</p>
+                <ul className="list-disc list-inside text-gray-700 space-y-2">
+                  <li>Your email address is entered correctly - your analysis will arrive here</li>
+                  <li>Your responses accurately reflect your client&apos;s priorities</li>
+                  <li>Your illustration PDF has been successfully uploaded</li>
+                </ul>
+              </motion.div>
+            </div>
 
             <Button 
               className="w-full bg-[#4361EE] text-white hover:bg-[#3651DE] transition-all duration-300" 
