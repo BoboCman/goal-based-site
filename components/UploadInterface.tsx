@@ -29,7 +29,7 @@ const formQuestions: FormQuestion[] = [
       "Provide survivor income protection for dependents or beneficiaries",
       "Act as a supplemental income source through tax-advantaged cash value access",
       "Enhance tax efficiency or maximize wealth accumulation potential",
-      "Provide estate liquidity or support wealth transfer objectives",
+      "Provide estate liquidity or support wealth transfer objectives", 
       "Support business planning needs (e.g., succession, buy-sell agreements, key-person protection)"
     ]
   },
@@ -37,7 +37,7 @@ const formQuestions: FormQuestion[] = [
     question: "What time horizon does your client expect for realizing the benefits of this policy?",
     options: [
       "Short-term: Less than 10 years",
-      "Medium-term: 10–20 years",
+      "Medium-term: 10–20 years", 
       "Long-term: 20+ years",
       "Lifetime: Benefits needed indefinitely"
     ]
@@ -337,7 +337,7 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="mt-4 p-4 bg-green-100 text-green-700 rounded-md flex items-center"
+                className="bg-green-100 text-green-700 rounded-md p-4 mt-4 flex items-center"
               >
                 <CheckCircle className="mr-2" />
                 <span>Thank you for uploading your policy document. Your reports will be sent shortly to the email address you provided.</span>
