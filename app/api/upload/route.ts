@@ -13,7 +13,6 @@ type TokenData = {
 
 export async function POST(req: NextRequest) {
   let client;
-
   try {
     // Validate authorization token
     const authHeader = req.headers.get('authorization')
@@ -69,7 +68,7 @@ export async function POST(req: NextRequest) {
     let metadata;
     try {
       metadata = JSON.parse(metadataJson)
-    } catch (error) {
+    } catch {
       return NextResponse.json(
         { success: false, error: 'Invalid metadata format' },
         { status: 400 }
@@ -147,4 +146,3 @@ export async function POST(req: NextRequest) {
     }
   }
 }
-
