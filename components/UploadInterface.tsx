@@ -219,13 +219,13 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
               </p>
             </div>
 
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              onClick={() => fileInputRef.current?.click()}
-              onDragOver={handleDragOver}
-              onDrop={handleDrop}
-            >
-              <div className="border-2 border-dashed border-gray-300 p-8 rounded-lg text-center cursor-pointer hover:border-[#4361EE] transition-all duration-300 bg-blue-50">
+            <motion.div whileHover={{ scale: 1.02 }}>
+              <div
+                className="border-2 border-dashed border-gray-300 p-8 rounded-lg text-center cursor-pointer hover:border-[#4361EE] transition-all duration-300 bg-blue-50"
+                onClick={() => fileInputRef.current?.click()}
+                onDragOver={handleDragOver}
+                onDrop={handleDrop}
+              >
                 <Upload className="mx-auto mb-4 text-[#4361EE]" size={40} />
                 <p className="mb-2 text-gray-700 font-medium">Drop your life insurance illustration here or click to browse</p>
                 <p className="text-sm text-gray-500">(PDF up to 2MB)</p>
