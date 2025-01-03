@@ -43,10 +43,10 @@ export async function POST(req: NextRequest) {
           price_data: {
             currency: 'usd',
             product_data: {
-              name: 'Policy Review',
-              description: 'AI-powered insurance policy review'
+              name: 'Goal-Based Analysis',
+              description: 'AI-powered insurance policy goal-based analysis'
             },
-            unit_amount: 75, // $.75
+            unit_amount: 55, // $.55
           },
           quantity: 1,
         },
@@ -55,7 +55,9 @@ export async function POST(req: NextRequest) {
       success_url: `${body.success_url}?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: body.cancel_url,
       metadata: {
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        service_type: 'gba',
+        created_at: new Date().toISOString()
       }
     })
 
