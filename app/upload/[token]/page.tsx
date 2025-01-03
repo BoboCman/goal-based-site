@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useEffect, useState, use } from 'react'
-import { UploadInterface } from '@/components/UploadInterface'  // Note: Using named import since I see interface in component code
+import UploadInterface from '@/components/UploadInterface'  // Note: Using named import since I see interface in component code
 
 export default function UploadPage({ 
   params 
