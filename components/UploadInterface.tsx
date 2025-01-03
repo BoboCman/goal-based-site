@@ -276,10 +276,10 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
                 <div className="mb-4 relative z-[50]" style={{ zIndex: 50 - index }}>
                   <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
                   <Select onValueChange={(value) => handleFormChange(index, value)}>
-                    <SelectTrigger className="w-full border-gray-300 bg-white focus:border-[#4361EE] focus:ring-[#4361EE]">
+                    <SelectTrigger className="w-full bg-white border border-gray-300 hover:border-[#4361EE] focus:border-[#4361EE] focus:ring-[#4361EE]">
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white border border-gray-300 shadow-md">
                       <div className="max-h-[300px] overflow-y-auto">
                         {q.options.map((option, optionIndex) => (
                           <SelectItem 
