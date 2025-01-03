@@ -273,18 +273,24 @@ export default function UploadInterface({ token }: UploadInterfaceProps) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="mb-4">
+                <div className="mb-4 relative z-[50]" style={{ zIndex: 50 - index }}>
                   <label className="block mb-2 font-medium text-[#4361EE]">{q.question}</label>
                   <Select onValueChange={(value) => handleFormChange(index, value)}>
-                    <SelectTrigger className="border-gray-300 focus:border-[#4361EE] focus:ring-[#4361EE]">
+                    <SelectTrigger className="w-full border-gray-300 bg-white focus:border-[#4361EE] focus:ring-[#4361EE]">
                       <SelectValue placeholder="Select an option" />
                     </SelectTrigger>
                     <SelectContent>
-                      {q.options.map((option, optionIndex) => (
-                        <SelectItem key={optionIndex} value={option}>
-                          {option}
-                        </SelectItem>
-                      ))}
+                      <div className="max-h-[300px] overflow-y-auto">
+                        {q.options.map((option, optionIndex) => (
+                          <SelectItem 
+                            key={optionIndex} 
+                            value={option}
+                            className="cursor-pointer hover:bg-gray-100"
+                          >
+                            {option}
+                          </SelectItem>
+                        ))}
+                      </div>
                     </SelectContent>
                   </Select>
                 </div>
